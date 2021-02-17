@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
@@ -32,6 +33,12 @@ export default {
   methods: {},
 
   watch: {},
+
+  computed: {
+    ...mapState({
+
+    })
+  }
 }
 </script>
 
