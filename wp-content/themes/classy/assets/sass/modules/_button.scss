@@ -1,0 +1,81 @@
+.btn {
+  display: inline-block;
+  border: 0;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  padding: 6px 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: none;
+  transition: .2s ease-in-out;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: #c4c4c4;
+    border-color: #f0f0f0;
+    background-color: #f0f0f0;
+    box-shadow: none;
+
+    .svg-icon {
+      fill: #c4c4c4;
+    }
+  }
+
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    &:focus {
+      //
+    }
+  }
+
+  .svg-icon {
+    display: inline;
+    vertical-align: baseline;
+    margin-left: 10px;
+    transition: fill .2s ease-in-out;
+  }
+}
+
+a.btn.disabled,
+fieldset:disabled a.btn {
+  pointer-events: none;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+[type='submit'],
+[type='reset'],
+[type='button'] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+button:focus {
+  outline: 0;
+}

@@ -1,0 +1,38 @@
+// MIXINS
+@import 'variables';
+@import 'functions';
+
+@mixin clearfix() {
+  &::after {
+    clear: both;
+    content: ' ';
+    display: table;
+  }
+}
+
+@mixin letter-spacing($letter-spacing, $font-size, $unit: px) {
+  @if ($unit == px) {
+    letter-spacing: #{($letter-spacing * $font-size / 1000) * 1px};
+  } @else if ($unit == em) {
+    letter-spacing: #{($letter-spacing / 1000) * 1em};
+  }
+}
+
+@mixin responsive-font-size($font-size-min, $font-size-max, $viewport-width-min, $viewport-width-max, $fallback: false) {
+  font-size: $font-size-min;
+
+  @media (min-width: $viewport-width-min) and (max-width: $viewport-width-max - 1) {
+
+    @if ($fallback) {
+      font-size: $fallback;
+    } @else {
+      font-size: round(($font-size-min + $font-size-max) / 2);
+    }
+
+    font-size: calc-responsive-font-size($font-size-min, $font-size-max, $viewport-width-min, $viewport-width-max);
+  }
+
+  @media (min-width: $viewport-width-max) {
+    font-size: $font-size-max;
+  }
+}
